@@ -38,16 +38,9 @@
           = f.input :password_confirmation, :label => 'Again', :required => false
       %hr
       .row
-        .large-3.column
-          %h4 Confirm Changes
-        .large-9.column
-          = f.input :current_password, :required => true
-          = f.button :submit, 'Update Profile', :class => 'fullbtn button radius btn-primary greenie'
-      %hr
-      .row
-        .large-3.column
-          %h4 Cancel Account
-        .large-9.column
-          #{link_to "Close My Account", registration_path(resource_name), :class => 'button btn-primary warning radius', :data => { :confirm => "Are you sure?" }, :method => :delete}.
-
-
+        .large-offset-3.column.large-9
+          .row
+            .large-6.column
+              = f.button :submit, 'Update Profile', :class => 'fullbtn button radius btn-primary greenie'
+            .large-6.column
+              #{link_to "Cancel Account", registration_path(resource_name), :class => 'fullbtn button btn-primary warning radius', :data => { :confirm => "Are you sure?" }, :method => :delete}.

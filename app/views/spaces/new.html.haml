@@ -19,8 +19,12 @@
       .panel
         %h3#monthly_price_label
           %span
-            Set Your Price
-        = f.input :monthly_price, as: :text, label: false, input_html: { 'data-slider' => 'true', 'data-slider-range' => "0,500", 'data-slider-step' => '5', value: 50 }
+            Set Your Rental Price
+        .form-group
+          .pull-left $
+          = f.input :monthly_price
+          &#47; Month
+        .clearfix
       #photos
         %h4 Add Photos
         %ul.clearing-thumbs
