@@ -1,19 +1,14 @@
-#actions
-  - if @conversation.is_trashed?(current_user)
-    /= link_to "Untrash", untrash_message_path(@conversation), class: :button, method: :post
-  - else
-    /= link_to "Trash", trash_message_path(@conversation), class: :button, method: :delete
 %h2
   Re:
   - space = Space.where(title: @conversation.subject.split("Something about ")[1]).first
-  - if space 
+  - if space
     = link_to @conversation.subject, space_path(space)
   - else
     = @conversation.subject
 #conversation
   - @conversation.messages.each do |message|
     .row
-      .small-4.column
+      .medium-4.column
         .panel
           %ul
             %li
@@ -22,7 +17,10 @@
             %li
               %strong Sent:
               #{time_ago_in_words(message.created_at)} ago
-      .small-8.column
+            %li
+              %strong Space:
+              Space Title
+      .medium-8.column
         = simple_format(message.body)
         - if message.attachment.url
           .attachment
@@ -31,9 +29,9 @@
   %h4 Your Reply
   = simple_form_for @message do |f|
     .row
-      .small-8.column.large-8
+      .medium-8.column.large-8
         = f.input :conversation_id, as: :hidden
         = f.input_field :body, as: :text, label: 'Reply'
-      .small-4.column.large-4
+      .medium-4.column.large-4
         = f.button :submit, 'Send Message', class: "button greenie fullbtn radius"
 
