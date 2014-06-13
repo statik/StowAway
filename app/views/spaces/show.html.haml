@@ -150,28 +150,29 @@
         %ul
           - unless @space.complete
             %li
-              %p Done with describing your space?
+              %p Done describing your space?
               = simple_form_for @space do |f|
                 = f.hidden_field :complete, :value => true
                 = f.hidden_field :available, :value => true
-                = button_tag(type: 'submit', class: 'btn-primary fullbtn button greenie radius') do
-                  %i{:class => 'icon-thumbs-up'}
-                  Looks good, list it!
+                = button_tag(type: 'submit', class: 'fullbtn button success radius') do
+                  Yes, list it!
           %li
             - if @space.available and @space.complete
-              %p Is your space full for now?
+              %p
+                Status:
+                %span.success Available
               = simple_form_for @space do |f|
                 = f.hidden_field :available, :value => false
-                = button_tag(type: 'submit', class: 'btn-primary fullbtn button standard radius') do
-                  %i{:class=>'icon-thumbs-down'}
-                  Make unavailable
+                = button_tag(type: 'submit', class: 'fullbtn button alert radius') do
+                  Make Unavailable
             - elsif @space.complete
-              %p Is your space available?
+              %p
+                Status:
+                %span.alert Unavailable
               = simple_form_for @space do |f|
                 = f.hidden_field :available, :value => true
-                = button_tag(type: 'submit', class: 'btn-primary fullbtn button greenie radius') do
-                  %i{:class => 'icon-thumbs-up'}
-                  Make available
+                = button_tag(type: 'submit', class: 'fullbtn button success radius') do
+                  Make Available
       - else
         %a.button.radius.fullbtn.greenie{id: 'space-inquiry', :href => "#", "data-reveal-id" => "inquiryModal"}
           %i.icon-message

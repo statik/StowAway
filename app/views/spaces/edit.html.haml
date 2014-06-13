@@ -1,9 +1,6 @@
-
 = simple_form_for(@resource, html: {class: 'form-vertical custom mb0', id: 'list-space-step1' }) do |f|
   %h2
-    Edit:
-    %strong
-      #{@resource.title}
+    #{@resource.title}
   = f.button :submit, 'Update & Preview', class: 'show-for-small btn-primary fullbtn button greenie radius'
 
   .row
@@ -12,6 +9,13 @@
       %hr
       = render partial: 'features', :locals => { f: f }
     .medium-4.columns
+      / Elliot place your availability buttons here.
+      .panel
+        %h3#monthly_price_label.text-center
+          %span
+            $
+            = succeed " / Month" do
+              = h @resource.monthly_price
       .panel
         %h3#monthly_price_label.text-center
           %span

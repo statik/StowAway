@@ -1,26 +1,20 @@
 .row
   .large-4.medium-5.columns
-    #owner.well.clearfix
-      - if @user.avatar.exists?
-        = image_tag @user.avatar.url(:square)
-      %h3
-        = @user.name
-      - if @user != current_user
-        = link_to 'javascript:;', {class: 'button fullbtn radius standard', "data-reveal-id" => "messageModal"} do
-          %i{:class=>'icon-envelope'}
-          Message
-
-      - if can_edit_user?(@user)
-        = link_to edit_user_registration_path, {:class=>'button radius fullbtn standard'} do
-          %i{:class=>'icon-pencil'}
-          Edit Profile
-    %p.show-for-medium-down
-      =@user.bio
+    .row
+      .large-12.medium-12.small-5.columns
+        #owner.clearfix
+          - if @user.avatar.exists?
+            = image_tag @user.avatar.url(:square)
+      .large-12.medium-12.small-7.columns
+        %h3
+          = @user.name
+        - if can_edit_user?(@user)
+          = link_to edit_user_registration_path, {:class=>'button radius fullbtn standard'} do
+            %i{:class=>'icon-pencil'}
+            Edit Profile
+        %p
+          = @user.bio
   .large-8.medium-7.columns
-    .hide-for-medium-down
-      %p
-        =@user.bio
-      %hr
     - @spaces.each do |s|
       .bigtime{:style => "background-image: url(#{s.photo if s.photo.exists?})"}
         = link_to space_path(s) do

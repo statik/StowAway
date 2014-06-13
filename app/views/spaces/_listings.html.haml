@@ -24,19 +24,6 @@
             |
             = link_to edit_space_path(s), { :class=>'', :title => title } do
               = link_text
-            |
-            - if s.available and s.complete
-              = simple_form_for s do |f|
-                = f.hidden_field :available, :value => false
-                = button_tag(type: 'submit', class: 'tiny button') do
-                  %i{:class=>'icon-thumbs-down'}
-                  Make unavailable
-            - elsif s.complete
-              = simple_form_for s do |f|
-                = f.hidden_field :available, :value => true
-                = button_tag(type: 'submit', class: 'tiny button') do
-                  %i{:class => 'icon-thumbs-up'}
-                  Make available
       %ul.features.clearfix
         - if s.environment? == "indoor"
           %li.has-tip{ data: { tooltip: 'Indoors' }, title: 'Indoors' }
