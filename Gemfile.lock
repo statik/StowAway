@@ -349,6 +349,8 @@ GEM
       carrierwave (>= 0.5.8)
       foreigner (>= 0.9.1)
       rails (> 3.0.0)
+    meta-tags (2.0.0)
+      actionpack (>= 3.0.0)
     method_source (0.8.2)
     mime-types (1.25.1)
     mini_portile (0.5.2)
@@ -627,6 +629,7 @@ DEPENDENCIES
   letter_opener
   librarian-chef
   mailboxer
+  meta-tags
   minitest
   omniauth
   omniauth-facebook

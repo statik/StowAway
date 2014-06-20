@@ -87,4 +87,3 @@ gem 'font-awesome-rails'
 gem 'carmen-rails', github: 'jim/carmen-rails'
 gem 'mailboxer'
 gem 'filepicker-rails'
-

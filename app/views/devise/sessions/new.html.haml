@@ -3,12 +3,11 @@
     = link_to "stowaway.co", root_path
     %small.beta beta
 .row
-  .box.columns.large-6.small-centered.small-11
-    %h2 Sign In
+  .box.columns.large-5.medium-5.small-centered.small-10
     = simple_form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:class => 'form-vertical custom' }) do |f|
       = f.input :email, :autofocus => true
       = f.input :password
-      = f.input :remember_me, :class => 'checkbox', :label => false, :inline_label => 'remember me', :as => :boolean if devise_mapping.rememberable? 
-      = f.button :submit, "Sign in", :class => 'radius button btn-primary'
+      = f.input :remember_me, :class => 'checkbox', :label => false, :inline_label => 'remember me', :as => :boolean if devise_mapping.rememberable?
+      = f.button :submit, "Sign in", :class => 'radius button success expand'
 
       = render "devise/shared/links"
