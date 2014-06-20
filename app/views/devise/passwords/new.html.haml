@@ -4,11 +4,11 @@
     %small.beta beta
 .row
   .box.columns.large-6.small-centered.small-11
-    %h2 Password Reset
+    %h2 Reset Your Password
     = simple_form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f|
       = f.error_notification
       .form-inputs
         = f.input :email, :required => true, :autofocus => true
       .form-actions
-        = f.button :submit, "Reset", :class => 'button radius btn-primary'
+        = f.button :submit, "Reset", :class => 'button radius success expand'
     = render "devise/shared/links"
