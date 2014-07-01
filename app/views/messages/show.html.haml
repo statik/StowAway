@@ -1,6 +1,7 @@
 %h2
   Re:
-  - space = Space.where(title: @conversation.subject.split("Something about ")[1]).first
+  - space_title = @conversation.subject.split("Something about ")[1]
+  - space = Space.where(title: space_title).first
   - if space
     = link_to @conversation.subject, space_path(space)
   - else
@@ -19,7 +20,7 @@
               #{time_ago_in_words(message.created_at)} ago
             %li
               %strong Space:
-              Space Title
+              #{space_title}
       .medium-8.column
         = simple_format(message.body)
         - if message.attachment.url
