@@ -1,6 +1,6 @@
+- space_title = @conversation.subject.split("Inquiry re: ")[1]
 %h2
   Re:
-  - space_title = @conversation.subject.split("Something about ")[1]
   - space = Space.where(title: space_title).first
   - if space
     = link_to @conversation.subject, space_path(space)
