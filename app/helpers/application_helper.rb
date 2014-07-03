@@ -24,7 +24,7 @@ module ApplicationHelper
   end
 
   def can_edit_space?(space)
-    is_space_owner?(space) or (current_user.has_role? :admin)
+    is_space_owner?(space) or (signed_in? and current_user.has_role? :admin)
   end
 
   def is_space_owner?(space)
