@@ -174,9 +174,10 @@
                 = button_tag(type: 'submit', class: 'fullbtn button success radius') do
                   Make Available
       - else
-        %a.button.radius.fullbtn.greenie{id: 'space-inquiry', :href => "#", "data-reveal-id" => "inquiryModal"}
-          %i.icon-message
-          Ask about this Space
+        -if signed_in?
+          %a.button.radius.fullbtn.greenie{id: 'space-inquiry', :href => "#", "data-reveal-id" => "inquiryModal"}
+            %i.icon-message
+            Ask about this Space
     #owner.well.clearfix
       = link_to user_path(@space.user), id: 'account' do
         - if @space.user.avatar.exists?
