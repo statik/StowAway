@@ -196,10 +196,10 @@
       %strong
         #{@space.user.name}
     = f.input :avatar, as: :hidden, input_html: { value: @space.user.avatar.url(:thumb)}
-    %label Re:
     / The subject here is very important and fragile. If you change it the database queries for replies will break.
+    / So we don't allow the user to see / edit the subject
     / This is a hack and needs to be changed in the future to record a space ID along with a message thread.
-    = f.input :subject, input_label: "Re:", input_html: { value: "Inquiry re: #{@space.title}" }
+    = f.input :subject, as: :hidden, input_html: { value: "Inquiry re: #{@space.title}" }
     %label Your Message
     = f.input_field :body, as: :text
     = f.button :submit, 'Send', class: "button fullbtn radius"
