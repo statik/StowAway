@@ -18,20 +18,20 @@ gem 'rolify'
 gem 'simple_form', '>= 3.0.0.rc'
 gem 'client_side_validations', git: 'git://github.com/bcardarella/client_side_validations.git', branch: '4-0-beta'
 gem 'client_side_validations-simple_form', git: 'git://github.com/saveritemedical/client_side_validations-simple_form.git'
-gem 'will_paginate'
+gem 'rails_admin'
+gem 'will_paginate', require: false
+gem 'paper_trail', '>= 3.0.0.beta1', require: false
+gem 'blogit', git: 'https://github.com/KatanaCode/blogit.git', branch: 'master'
 gem 'acts-as-taggable-on'
 gem 'gmaps4rails', "~> 1.5.0"
 gem 'geocoder'
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 gem 'paperclip', '~> 3.0'
 gem 'unf' # used by AWS/FOG
-gem 'rails_admin'
-gem 'paper_trail', '>= 3.0.0.beta1'
 gem 'fog'
 gem 'aws-sdk', '~> 1.5.7'
 gem "resque", "~> 2.0.0.pre.1", :git => "https://github.com/resque/resque"
 gem 'whenever'
-gem 'blogit', git: 'https://github.com/KatanaCode/blogit.git', branch: 'master'
 gem 'select2-rails'
 gem 'sentry-raven', :git => "https://github.com/getsentry/raven-ruby.git"
 gem 'strip_attributes'                 # clean spaces from model attrs
